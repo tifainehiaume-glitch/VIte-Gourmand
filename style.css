@@ -15,14 +15,9 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-.logo {
-    color: #893941;
-    font-weight: bold;
-    font-size: 2rem;
-    text-decoration: none;
-}
-.logo span {
-    color: #cb7885;
+.logo-image {
+    width: 80px;
+    height: auto;
 }
 .navbar {
     display: flex;
@@ -48,7 +43,7 @@ header .navbar li a:hover {
     border-radius: 10px;
 }
 .accueil {
-    margin: 200px;
+    margin: 150px;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -63,4 +58,9 @@ header .navbar li a:hover {
 .descriptif h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+}
+.descriptif :nth-child(2) {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
 }
