@@ -4,6 +4,7 @@
     box-sizing: border-box;
     background-color: #F2F0EF;
 }
+/* Styles pour le header et la navigation */
 header nav{
     position: fixed;
     top: 0%;
@@ -41,6 +42,7 @@ header .navbar li a:hover {
     color: #cb7885;
     border-bottom: #893941 1px solid;
 }
+/* Styles pour la page d'accueil */
 .accueil {
     margin: 150px 20px 20px 20px;
     padding: 20px;
@@ -145,4 +147,47 @@ footer {
 .mentions a:hover {
     color: #cb7885;
     border-bottom: #893941 1px solid;
+}
+
+/* Styles pour la page des menus */
+.nos-menus {
+    margin: 150px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.menus {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 80%;
+}
+.menu {
+    display: inline-block;
+    background-color: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #dadada;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+}
+/*Styles pour la page de contact*/
+.nous-contacter {
+    margin: 250px 20px 20px 20px;
+    text-align: center;
+}
+.contact-form {
+    margin: 100px;
+    display: flex;
+}
+.contact-form form {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #dadada;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
