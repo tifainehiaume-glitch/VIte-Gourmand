@@ -2,7 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #F2F0EF;
+}
+main {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+.space {
+    height: 145px;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* Styles pour le header et la navigation */
 header nav{
@@ -42,9 +53,18 @@ header .navbar li a:hover {
     color: #cb7885;
     border-bottom: #893941 1px solid;
 }
+/* Styles pour h2 */
+h2 {
+    margin: 60px;
+    font-size: 20px;
+    color: #893941;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 /* Styles pour la page d'accueil */
 .accueil {
-    margin: 150px 20px 20px 20px;
+    margin: 20px 20px 20px 20px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -151,43 +171,297 @@ footer {
 
 /* Styles pour la page des menus */
 .nos-menus {
-    margin: 150px 20px 20px 20px;
+    margin: 20px 20px 20px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 20px;
 }
 .menus {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 40px;
     width: 80%;
+    margin: 50px 150px;
 }
 .menu {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #ffffff;
-    margin: 20px auto;
     padding: 20px;
     border: 1px solid #dadada;
     border-radius: 10px;
     width: 100%;
     text-align: center;
+    box-shadow: 0 4px 8px #5e66231a;
+    gap: 5px;
+}
+.menu a {
+    color: black;
+    text-decoration: none;
 }
 /*Styles pour la page de contact*/
 .nous-contacter {
-    margin: 250px 20px 20px 20px;
+    margin: 20px 20px 20px 20px;
     text-align: center;
 }
 .contact-form {
     margin: 100px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .contact-form form {
     background-color: #ffffff;
     padding: 20px;
     border: 1px solid #dadada;
     border-radius: 10px;
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+}
+.contact-form textarea , .contact-form input {
+    width: 100%;
+}
+.contact-form button {
+    background-color: #cb7885;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60%;
+    display: flex;    
+    justify-content: center;
+    margin: 0 auto;
+}
+.contact-form button:hover {
+    background-color: #893941;
+}
+/* Styles pour la page de connexion */
+.connecter {
+    margin: 20px 20px 20px 20px;
+    text-align: center;
+    font-size: 20px;
+}
+.connecter-form {
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.connecter-form form {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #dadada;
+    border-radius: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.connecter-form input {
+    width: 100%;
+}
+.contact a {
+    color: #cb7885;
+    text-decoration: none;
+}
+.contact a:hover {
+    color: #893941;
+    border-bottom: #893941 1px solid;
+}
+.connecter-form button {
+    background-color: #cb7885;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60%;
+    display: flex;    
+    justify-content: center;
+    margin: 0 auto;
+}
+.connecter-form button:hover {
+    background-color: #893941;
+}
+.inscription a {
+    color: #cb7885;
+    text-decoration: none;
+}
+.inscription a:hover {
+    color: #893941;
+    border-bottom: #893941 1px solid;
+}
+/* Styles pour les pages de menu */
+.tradition-familiale, .vegetarien-fraicheur, .vegan-epioce, .vegan-sans-gluten, .sans-lactose, .sans-gluten, .pescetarien {
+    margin: 20px 20px 20px 20px;
+    text-align: center;
+    font-size: 20px;
+}
+.theme-menu {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #dadada;
+    border-radius: 10px;
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+/*
+.theme-menu img {
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}*/
+.details-menu {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #dadada;
+    border-radius: 10px;
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    grid-template-areas: "1 1 1 2"
+                        "3 3 3 4";
+}
+.dtl {
+    margin: 20px 0;
+    border: 1px solid #dadada;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #d8e0c8;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    gap: 10px; 
+   
+}
+nav .retour .commander {
+    background-color: #cb7885;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+nav .retour:hover {
+    background-color: #893941;
+}
+/* Styles pour la page de réinitialisation de mot de passe */ 
+
+.reinitialiser-form { 
+    margin: 30px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+    background-color: #ffffff; 
+    padding: 20px; 
+    border: 1px solid #dadada; 
+    border-radius: 10px; 
+    width: 50%; 
+    gap: 20px; 
+    text-align: center;
+} 
+.reinitialiser-form p, .reinitialiser-form label {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+.contact{
+    width: 100%;
+}
+/*mettre une alerte pour dire qu'un mail vous a été envoyé */
+.reinitialiser-form input { 
+    width: 100%; 
+} 
+.reinitialiser-form button { 
+    background-color: #cb7885; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    width: 60%; 
+    display: flex; 
+    justify-content: center; 
+    margin: 0 auto; 
+} 
+.reinitialiser-form button:hover { 
+    background-color: #893941; 
+}
+/*style inscription page*/
+.inscription {
+    margin: 20px 20px 20px 20px;
+    text-align: center;
+    font-size: 20px;
+}
+.inscription-form { 
+    margin: 100px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+} 
+.inscription-form form { 
+    background-color: #ffffff; 
+    padding: 20px; 
+    border: 1px solid #dadada; 
+    border-radius: 10px; 
+    width: 50%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+} 
+.inscription-form input { 
+    width: 100%; 
+} 
+.inscription-form button { 
+    background-color: #cb7885; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    width: 60%; 
+    display: flex; 
+    justify-content: center; 
+    margin: 20px auto;
+} 
+.inscription-form button:hover { 
+    background-color: #893941; 
+}
+/* Styles pour la page de commande */
+.commander {
+    margin: 20px 20px 20px 20px;
+    text-align: center;
+    font-size: 20px;
+}
+/* style pour commande et détails du menu */
+.votre-choix {
+    margin: 250px 20px 20px 20px;
+    text-align: center;
+    font-size: 20px;
+}
+/* styles pour la page de validation de commande */
+.validation {
+    margin: 250px 20px 20px 20px;
+    text-align: center;
+    font-size: 20px;
 }

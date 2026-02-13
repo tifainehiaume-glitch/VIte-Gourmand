@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-     <nav>
+    <nav>
      <a href="/index.html" class="logo" >
         <img src="logo-vite-et-gourmand.svg" alt="Logo Vite & Gourmand" class="logo-image"> 
      </a>
@@ -18,32 +18,27 @@
             <li><a href="/connecter.html">Me Connecter</a></li>
      </ul>  
     </nav>
-</header>    
+</header>
+
 <main>
     <div class="space"></div>
-<div>
-    <h2>Me Connecter</h2>
+    <div>
+    <h2>Réinitialiser votre mot de passe</h2>
+</div> 
+<div class="center">
+    <form action="#" method="post" class="reinitialiser-form">
+        <div class="info">
+        <p>Entrez votre adresse email pour recevoir un lien de réinitialisation de mot de passe.</p> 
+        </div>
+        <div class="contact"> 
+            <label for="email">Email:</label> 
+            <input type="email" id="email" name="email" required> 
+        </div> 
+        <button type="submit">Envoyer</button> 
+    </form> 
 </div>
-<section class="connecter-form">
-    <form action="#" method="post">
-        <div class="contact">
-            <label for="username">Identifiant:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-
-        <div class="contact">
-            <label for="password">Mot de passe:</label>
-            <input type="password" id="password" name="password" required>
-            <p>Mot de passe oublié ? <a href="/reinitialiser.html">Réinitialiser</a></p>
-        </div>
-
-        <button type="submit">Se Connecter</button>
-        <div class="inscription">
-            <p>Pas encore de compte ? <a href="/inscription.html">S'inscrire</a></p>
-        </div>
-    </form>
-</section>
 </main>  
+
 <footer>
     <div class="horaires">
         <p>Nos Horaires:</p>

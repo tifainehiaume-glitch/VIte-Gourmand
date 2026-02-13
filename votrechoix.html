@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Vite & Gourmand</title>
+</head>
+<body>
+    <header>
+    <nav>
+     <a href="/index.html" class="logo" >
+        <img src="logo-vite-et-gourmand.svg" alt="Logo Vite & Gourmand" class="logo-image"> 
+     </a>
+     <ul class="navbar">
+            <li><a href="/menus.html">Nos Menus</a></li>
+            <li><a href="/contact.html">Nous Contacter</a></li>
+            <li><a href="/connecter.html">Me Connecter</a></li>
+     </ul>  
+    </nav>
+</header>
+
+<main>
+    <div class="space"></div>
+    <section class="votre-choix">
+        <h2>Votre choix</h2>
+    </section>
+    <section class="votre-choix-details"> 
+        <div>
+            <img src="menu1.jpg" alt="Menu1" class="menu-image">
+            <h3>Menu 1</h3>
+            <p>Description du menu 1</p>
+        </div>
+        <div class="votre-choix-nrb-pers">
+            <label for="nrb-pers">Nombre de personnes:</label>
+            <input type="number" id="nrb-pers" name="nrb-pers" placeholder="Nombre de personnes" min="10" max="30" required>
+        </div>
+    </section>
+    <section class="code-promo">
+        <div>
+            <label for="code-promo">Code Promo:</label>
+            <input type="text" id="code-promo" name="code-promo" placeholder="code promo">
+            <button>Appliquer</button>
+        </div>
+        <div class="condition-promo"></div>
+        <p>A partir de 5 personnes au dessus de la limite minimum vous bénéficiez d'une réduction de 10% immédiatement.</p>
+        <p>La réduction est appliquée automatiquement à votre commande.</p> 
+        <p>La réduction n'est pas cumulable avec d'autres offres.</p>
+        </div>
+    </section>
+    <section class="total">
+       <!-- <p>Prix total du menu: <span id="total-price">250€</span></p>-->
+        <p>Prix total avec réduction: <span id="total-price-reduction">225€</span></p>
+        <p>Prix de la livraison: 15€</p>
+        <p>Total: <span id="total-order-price">240€</span></p>
+    </section>
+    <nav>
+        <button class="retour"><a href="/menus.html">Retour</a></button>
+        <button class="valider"><a href="/validation.html">Valider</a></button>
+    </nav>
+<!-- alerte= commande envoyé -->
+</main>  
+
+<footer>
+    <div class="horaires">
+        <p>Nos Horaires:</p>
+        <p>Lundi - Dimanche: 9h - 18h</p>
+    </div>
+    <nav class="mentions">
+        <p class="ml"><a href="#">Mentions Legales</a></p>
+        <p class="cg"><a href="#">Conditions Generales</a></p>
+    </nav>
+</footer>
+</body>
+</html>
