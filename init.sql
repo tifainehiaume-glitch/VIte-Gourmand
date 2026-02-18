@@ -36,6 +36,7 @@ CREATE TABLE role (
 -- Table utilisateur
 CREATE TABLE utilisateur (
     email VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(255) NOT NULL,
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
     telephone VARCHAR(20),

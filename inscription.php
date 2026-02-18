@@ -1,7 +1,3 @@
-<?php
-// Inclure le fichier de configuration
-require_once 'config.php';
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,10 +22,10 @@ require_once 'config.php';
 
 <main>
     <div class="space"></div>
-<section class="inscription">
+<section class="inscription-client">
     <h2>Inscription</h2>
     <div class="inscription-form">
-        <form action="#" method="post">
+        <form action="inscription_traitement.php" method="post">
             <label for="nom">Nom:</label>
             <input type="text" id="nom" name="nom" placeholder="Nom" required>
             <label for="prenom">Prénom:</label>
@@ -40,15 +36,13 @@ require_once 'config.php';
             <input type="email" id="email" name="email" placeholder="Email" required> 
             <label for="adresse">Adresse:</label>
             <input type="text" id="adresse" name="adresse" placeholder="Adresse" required>
-            <label for="zip">Code postal:</label>
-            <input type="text" id="zip" name="zip" placeholder="Code postal" required>
             <label for="city">Ville:</label>
             <input type="text" id="city" name="city" placeholder="Ville" required>
             <label for="password">Mot de passe:</label>
             <input type="password" id="password" name="password" placeholder="Mot de passe" required>
             <label for="confirm_password">Confirmer le mot de passe:</label>
             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmer le mot de passe" required>
-            <button type="submit">S'inscrire</button>
+            <button type="submit" name="inscription">S'inscrire</button>
         </form>
         
     </div>

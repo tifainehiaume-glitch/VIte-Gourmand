@@ -1,6 +1,7 @@
 SET NAMES utf8mb4;
 SET CHARACTER SET utf8mb4;
 
+
 -- Insertion des régimes
 INSERT INTO regime (libelle) VALUES
 ('Végétarien'),
@@ -31,11 +32,11 @@ INSERT INTO role (libelle) VALUES
 ('Utilisateur');
 
 -- Insertion des utilisateurs
-INSERT INTO utilisateur (email, nom, prenom, telephone, ville, pays, adresse_postale, role_id) VALUES
-('admin@vite-et-gourmand.fr', 'Dupont', 'Julie', '0612345678', 'Bordeaux', 'France', '123 Rue des Gourmets, Bordeaux', 1),
-('employe@vite-et-gourmand.fr', 'Martin', 'José', '0687654321', 'Bordeaux', 'France', '456 Rue des Saveurs, Bordeaux', 2),
-('alice.bernard@gmail.fr', 'Bernard', 'Alice', '0712345678', 'Paris', 'France', '789 Rue de Paris, Paris', 3),
-('pierredurand@outlook.fr', 'Durand', 'Pierre', '0787654321', 'Lyon', 'France', '321 Rue de Lyon, Lyon', 3);
+INSERT INTO utilisateur (email, password, nom, prenom, telephone, ville, pays, adresse_postale, role_id) VALUES
+('admin@vite-et-gourmand.fr', 'admin123', 'Julie', 'Dupont', '0612345678', 'Bordeaux', 'France', '123 Rue des Gourmets, Bordeaux', 1),
+('employe@vite-et-gourmand.fr', 'employe123', 'José', 'Martin', '0687654321', 'Bordeaux', 'France', '456 Rue des Saveurs, Bordeaux', 2),
+('alice.bernard@gmail.fr', 'alice123', 'Alice', 'Bernard', '0712345678', 'Paris', 'France', '789 Rue de Paris, Paris', 3),
+('pierredurand@outlook.fr', 'pierre123', 'Pierre', 'Durand', '0787654321', 'Lyon', 'France', '321 Rue de Lyon, Lyon', 3);
 
 -- Insertion des horaires
 INSERT INTO horaire (heure_ouverture, heure_fermeture) VALUES
@@ -127,30 +128,14 @@ INSERT INTO adapte (menu_id, regime_id) VALUES
 (2, 4), -- Menu Elegance Légère adapté au régime Classique
 (3, 4), -- Menu Terroir Français adapté au régime Classique
 (4, 4), -- Menu Classique Festif adapté au régime Classique
-(5, 1), -- Menu Végétarien Fraicheur adapté au régime Végétarien
+(5, 6), -- Menu Végétarien Fraicheur adapté au régime Végétarien
 (6, 2), -- Menu Végan Epicé adapté au régime Vegan
 (7, 2), -- Menu Végan sans Gluten adapté au régime Vegan
-(7, 3), -- Menu Végan sans Gluten adapté aussi au régime Sans gluten
 (8, 5), -- Menu Sans Lactose adapté au régime Sans lactose
 (9, 3), -- Menu Sans Gluten adapté au régime Sans gluten
-(10, 6), -- Menu Pescétarien adapté au régime Pescetarien
+(10, 1), -- Menu Pescétarien adapté au régime Pescetarien
 (11, 3), -- Menu Sans Gluten adapté au régime Sans gluten
-(12, 6); -- Menu Pescétarien adapté au régime Pescetarien
-
--- Insertion des relations entre menus et thèmes
-INSERT INTO possede (menu_id, theme_id) VALUES
-(1, 1), -- Menu Tradition Familiale associé au thème Evenement
-(2, 2), -- Menu Elegance Légère associé au thème Classique
-(3, 3), -- Menu Terroir Français associé au thème Festif
-(4, 3), -- Menu Classique Festif associé au thème Festif
-(5, 1), -- Menu Végétarien Fraicheur associé au thème Evenement
-(6, 3), -- Menu Végan Epicé associé au thème Festif
-(7, 2), -- Menu Végan sans Gluten associé au thème Classique
-(8, 1), -- Menu Sans Lactose associé au thème Evenement
-(9, 2), -- Menu Sans Gluten associé au thème Classique
-(10, 3), -- Menu Pescétarien associé au thème Festif
-(11, 1), -- Menu Sans Gluten associé au thème Evenement
-(12, 3); -- Menu Pescétarien associé au thème Festif
+(12, 1); -- Menu Pescétarien adapté au régime Pescetarien
 
 -- Insertion des relations entre plats et allergènes
 INSERT INTO contient (plat_id, allergene_id) VALUES
