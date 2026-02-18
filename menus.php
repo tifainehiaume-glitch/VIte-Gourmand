@@ -139,7 +139,7 @@ try {
         <div class="menu-details">
         <p>Salade de chèvre chaud, miel et noix.</p>
         <p>Lasagne aux légumes de saison.</p>
-        <p>Mousse au chocolat.</p>
+        <p>Mousse au chocolat noir.</p>
         </div>
         <p>Allergènes: Noix, Lait, Gluten, Oeufs</p>
         <p>Régime alimentaire: Végétarien</p>

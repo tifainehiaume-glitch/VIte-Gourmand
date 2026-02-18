@@ -28,9 +28,9 @@ try {
         <img src="logo-vite-et-gourmand.svg" alt="Logo Vite & Gourmand" class="logo-image"> 
      </a>
      <ul class="navbar">
-            <li><a href="/menus.html">Nos Menus</a></li>
+            <li><a href="/menus.php">Nos Menus</a></li>
             <li><a href="/contact.html">Nous Contacter</a></li>
-            <li><a href="/connecter.html">Me Connecter</a></li>
+            <li><a href="/connecter.php">Me Connecter</a></li>
      </ul>  
     </nav>
 </header>
@@ -46,8 +46,8 @@ try {
 </div>
 
 <section class="details-menu">
-<div class="dtl-menu">
-    <p class="dtl" style="grid-area: item-1"><?= $menu['description'] ?></p>
+<div class="dtl-menu"> 
+    <p class="dtl" style="grid-area: item-1">Description: <?= $menu['description'] ?></p>
     <p class="dtl" style="grid-area: item-2">Stock: <?= $menu['quantite_restante'] ?></p>
     <p class="dtl" style="grid-area: item-3">Nombre de personnes minimum: <?= $menu['nombre_personne_minimum'] ?></p>
     <p class="dtl" style="grid-area: item-4">Prix minimum: <?= $menu['prix_par_personne'] ?>€</p>
@@ -56,9 +56,9 @@ try {
     </div>
     <div class="dtl" style="grid-area: item-6">
         <?= $menu['plat'] 
-    <p>velouté de potimarron et légumes de saison.</p>
+    /* <p>velouté de potimarron et légumes de saison.</p>
     <p>Suprême de poulet rôti accompagné de pommes grenailles au thym.</p>
-    <p>Tarte fine aux pommes</p>?>
+    <p>Tarte fine aux pommes</p>*/?> 
     </div>
     <p class="dtl" style="grid-area: item-7"> Allergènes: <?= $menu['allergenes'] ?></p>
     <p class="dtl" style="grid-area: item-8">Régime alimentaire: <?= $menu['regime_id'] ?></p>
