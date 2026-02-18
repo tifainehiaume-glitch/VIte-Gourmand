@@ -1,7 +1,6 @@
 SET NAMES utf8mb4;
 SET CHARACTER SET utf8mb4;
 
-
 -- Insertion des régimes
 INSERT INTO regime (libelle) VALUES
 ('Végétarien'),
@@ -69,19 +68,19 @@ INSERT INTO plat (titre_plat, type_plat, description) VALUES
 ('Poire pochée', 'Dessert', 'Poires pochées dans un sirop de fruits rouges maison.');
 
 -- Insertion des menus
-INSERT INTO menu (titre, nombre_personne_minimum, prix_par_personne, quantite_restante, description, regime_id, theme_id) VALUES
-('Tradition Familiale', 10, 25, 26, 'Un menu classique et chaleureux pour profiter en famille.', 4, 1),
-('Elegance Légère', 10, 23, 20, 'Un menu léger et raffiné pour les occasions spéciales.', 4, 2),
-('Terroir Français', 8, 29, 30, 'Un menu traditionnel revisité.', 4, 3),
-('Classique Festif', 8, 36, 30, 'Un menu premium pour célébrations.', 4, 4),
-('Pescétarien Festif', 8, 32, 30, 'Un menu festif à base de poisson.', 6, 4),
-('Vegetarien Gourmand', 8, 27, 26, 'Un menu végétarien gourmand pour les fêtes.', 1, 4),
-('Végétarien Fraicheur', 8, 24, 30, 'Un menu léger et coloré.', 1, 1),
-('Végan Epicé', 8, 28, 20, 'Un menu végan pour les fêtes.', 2, 3),
-('Végan sans Gluten', 8, 30, 30, 'Un menu végétal sans gluten.', 2, 2),
-('Sans Lactose', 8, 22, 26, 'Un menu festif sans lactose.', 3, 3),
-('Sans Gluten', 8, 27, 30, 'Un menu sans gluten pour les fêtes.', 3, 3),
-('Pescétarien', 8, 26, 20, 'Un menu poisson premium.', 6, 1);
+INSERT INTO menu (titre, nombre_personne_minimum, prix_par_personne, quantite_restante, description) VALUES
+('Tradition Familiale', 10, 25, 26, 'Un menu classique et chaleureux pour profiter en famille.'),
+('Elegance Légère', 10, 23, 20, 'Un menu léger et raffiné pour les occasions spéciales.'),
+('Terroir Français', 8, 29, 30, 'Un menu traditionnel revisité.'),
+('Classique Festif', 8, 36, 30, 'Un menu premium pour célébrations.'),
+('Pescétarien Festif', 8, 32, 30, 'Un menu festif à base de poisson.'),
+('Vegetarien Gourmand', 8, 27, 26, 'Un menu végétarien gourmand pour les fêtes.'),
+('Végétarien Fraicheur', 8, 24, 30, 'Un menu léger et coloré.'),
+('Végan Epicé', 8, 28, 20, 'Un menu végan pour les fêtes.'),
+('Végan sans Gluten', 8, 30, 30, 'Un menu végétal sans gluten.'),
+('Sans Lactose', 8, 22, 26, 'Un menu festif sans lactose.'),
+('Sans Gluten', 8, 27, 30, 'Un menu sans gluten pour les fêtes.'),
+('Pescétarien', 8, 26, 20, 'Un menu poisson premium.');
 
 -- Insertion des relations entre menus et plats
 INSERT INTO propose (menu_id, plat_id) VALUES
@@ -128,14 +127,30 @@ INSERT INTO adapte (menu_id, regime_id) VALUES
 (2, 4), -- Menu Elegance Légère adapté au régime Classique
 (3, 4), -- Menu Terroir Français adapté au régime Classique
 (4, 4), -- Menu Classique Festif adapté au régime Classique
-(5, 6), -- Menu Végétarien Fraicheur adapté au régime Végétarien
+(5, 1), -- Menu Végétarien Fraicheur adapté au régime Végétarien
 (6, 2), -- Menu Végan Epicé adapté au régime Vegan
 (7, 2), -- Menu Végan sans Gluten adapté au régime Vegan
+(7, 3), -- Menu Végan sans Gluten adapté aussi au régime Sans gluten
 (8, 5), -- Menu Sans Lactose adapté au régime Sans lactose
 (9, 3), -- Menu Sans Gluten adapté au régime Sans gluten
-(10, 1), -- Menu Pescétarien adapté au régime Pescetarien
+(10, 6), -- Menu Pescétarien adapté au régime Pescetarien
 (11, 3), -- Menu Sans Gluten adapté au régime Sans gluten
-(12, 1); -- Menu Pescétarien adapté au régime Pescetarien
+(12, 6); -- Menu Pescétarien adapté au régime Pescetarien
+
+-- Insertion des relations entre menus et thèmes
+INSERT INTO possede (menu_id, theme_id) VALUES
+(1, 1), -- Menu Tradition Familiale associé au thème Evenement
+(2, 2), -- Menu Elegance Légère associé au thème Classique
+(3, 3), -- Menu Terroir Français associé au thème Festif
+(4, 3), -- Menu Classique Festif associé au thème Festif
+(5, 1), -- Menu Végétarien Fraicheur associé au thème Evenement
+(6, 3), -- Menu Végan Epicé associé au thème Festif
+(7, 2), -- Menu Végan sans Gluten associé au thème Classique
+(8, 1), -- Menu Sans Lactose associé au thème Evenement
+(9, 2), -- Menu Sans Gluten associé au thème Classique
+(10, 3), -- Menu Pescétarien associé au thème Festif
+(11, 1), -- Menu Sans Gluten associé au thème Evenement
+(12, 3); -- Menu Pescétarien associé au thème Festif
 
 -- Insertion des relations entre plats et allergènes
 INSERT INTO contient (plat_id, allergene_id) VALUES

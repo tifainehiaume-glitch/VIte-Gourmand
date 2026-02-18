@@ -43,7 +43,7 @@ CREATE TABLE utilisateur (
     pays VARCHAR(50),
     adresse_postale VARCHAR(255),
     role_id INT,
-    FOREIGN KEY (role_id) REFERENCES role(role_id)
+    FOREIGN KEY (role_id) REFERENCES role(role_id) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table horaire
@@ -56,21 +56,17 @@ CREATE TABLE horaire (
 -- Table menu
 CREATE TABLE menu (
     menu_id INT AUTO_INCREMENT PRIMARY KEY,
-    titre VARCHAR(50) NOT NULL,
+    titre VARCHAR(100) NOT NULL,
     nombre_personne_minimum INT NOT NULL,
     prix_par_personne DOUBLE NOT NULL,
     quantite_restante INT,
-    description VARCHAR(255),
-    regime_id INT,
-    theme_id INT,
-    FOREIGN KEY (regime_id) REFERENCES regime(regime_id),
-    FOREIGN KEY (theme_id) REFERENCES theme(theme_id)
+    description VARCHAR(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table plat
 CREATE TABLE plat (
     plat_id INT AUTO_INCREMENT PRIMARY KEY,
-    titre_plat VARCHAR(50) NOT NULL,
+    titre_plat VARCHAR(100) NOT NULL,
     type_plat VARCHAR(50) NOT NULL,
     photo BLOB,
     description VARCHAR(255)
@@ -87,7 +83,7 @@ CREATE TABLE commande (
     pret_materiel BOOLEAN,
     restitution_materiel BOOLEAN,
     email VARCHAR(50),
-    FOREIGN KEY (email) REFERENCES utilisateur(email)
+    FOREIGN KEY (email) REFERENCES utilisateur(email) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table avis
@@ -97,7 +93,7 @@ CREATE TABLE avis (
     description VARCHAR(255),
     statut VARCHAR(50),
     email VARCHAR(50),
-    FOREIGN KEY (email) REFERENCES utilisateur(email)
+    FOREIGN KEY (email) REFERENCES utilisateur(email) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table propose (relation entre menu et plat)
@@ -105,8 +101,8 @@ CREATE TABLE propose (
     menu_id INT,
     plat_id INT,
     PRIMARY KEY (menu_id, plat_id),
-    FOREIGN KEY (menu_id) REFERENCES menu(menu_id),
-    FOREIGN KEY (plat_id) REFERENCES plat(plat_id)
+    FOREIGN KEY (menu_id) REFERENCES menu(menu_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (plat_id) REFERENCES plat(plat_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table adapte (relation entre menu et régime)
@@ -114,8 +110,8 @@ CREATE TABLE adapte (
     menu_id INT,
     regime_id INT,
     PRIMARY KEY (menu_id, regime_id),
-    FOREIGN KEY (menu_id) REFERENCES menu(menu_id),
-    FOREIGN KEY (regime_id) REFERENCES regime(regime_id)
+    FOREIGN KEY (menu_id) REFERENCES menu(menu_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (regime_id) REFERENCES regime(regime_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table contient (relation entre plat et allergène)
@@ -123,8 +119,8 @@ CREATE TABLE contient (
     plat_id INT,
     allergene_id INT,
     PRIMARY KEY (plat_id, allergene_id),
-    FOREIGN KEY (plat_id) REFERENCES plat(plat_id),
-    FOREIGN KEY (allergene_id) REFERENCES allergene(allergene_id)
+    FOREIGN KEY (plat_id) REFERENCES plat(plat_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (allergene_id) REFERENCES allergene(allergene_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table possede (relation entre menu et thème)
@@ -132,6 +128,6 @@ CREATE TABLE possede (
     menu_id INT,
     theme_id INT,
     PRIMARY KEY (menu_id, theme_id),
-    FOREIGN KEY (menu_id) REFERENCES menu(menu_id),
-    FOREIGN KEY (theme_id) REFERENCES theme(theme_id)
+    FOREIGN KEY (menu_id) REFERENCES menu(menu_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (theme_id) REFERENCES theme(theme_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
