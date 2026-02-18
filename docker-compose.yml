@@ -1,0 +1,39 @@
+services: 
+  web:  
+    build: .  
+    ports:
+      - "8080:80" 
+    depends_on:
+      - db
+    volumes:
+      - .:/var/www/html
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: vite-et-gourmand-db
+      MYSQL_USER: thiaume
+      MYSQL_PASSWORD: Changeme1234&
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/1-init.sql
+      - ./insert_data.sql:/docker-entrypoint-initdb.d/2-insert_data.sql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db  
+      PMA_USER: thiaume
+      PMA_PASSWORD: Changeme1234&
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:

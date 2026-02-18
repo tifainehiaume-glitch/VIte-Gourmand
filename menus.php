@@ -1,3 +1,16 @@
+<?php
+// Inclure le fichier de configuration
+require_once 'config.php';
+
+try {
+    // Requête pour récupérer tous les menus
+    $sql = "SELECT menu_id, titre, nombre_personne_minimum, prix_par_personne, description FROM menu";
+    $stmt = $pdo->query($sql);
+    $menus = $stmt->fetchAll();
+} catch (PDOException $e) {
+    die("Erreur lors de la récupération des menus : " . $e->getMessage());
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,7 +26,7 @@
         <img src="logo-vite-et-gourmand.svg" alt="Logo Vite & Gourmand" class="logo-image"> 
      </a>
      <ul class="navbar">
-            <li><a href="/menus.html">Nos Menus</a></li>
+            <li><a href="/menus.php">Nos Menus</a></li>
             <li><a href="/contact.html">Nous Contacter</a></li>
             <li><a href="/connecter.html">Me Connecter</a></li>
      </ul>  
@@ -25,7 +38,14 @@
     <h2>Nos Menus</h2>
 </div>
 <div class="menus">
-    <div class="menu">
+    <?php foreach ($menus as $menu): ?>
+               <div class="menu">
+                   <h3><a href="/menu.php?menu_id=<?= $menu['menu_id'] ?>"><?= $menu['titre'] ?></a></h3>
+                   <p><?= $menu['description'] ?></p>
+                   <img src="menu<?= $menu['menu_id'] ?>.jpg" alt="Menu <?= $menu['menu_id'] ?>" class="menu-image">
+                </div>
+            <?php endforeach; ?>
+<div class="menu">
         <h3><a href="/menu1.html">Tradition Familiale</a></h3>
         <p>Classique</p>
         <p>Stock: 26</p>
@@ -45,7 +65,7 @@
     <div class="menu">
         <h3><a href="/menu2.html">Elégance légère</a></h3>
         <p>Classique</p>
-        <p>Stock: 26</p>
+        <p>Stock: 20</p>
         <img src="menu2.jpg" alt="Menu 2" class="menu-image">
         <p>Menu léger et raffiné.</p>
         <div class="menu-details">
@@ -61,8 +81,8 @@
     </div>
     <div class="menu">
         <h3><a href="/menu3.html">Terroir Français</a></h3>
-        <p>Noel</p>
-        <p>Stock: 26</p>
+        <p>Festif</p>
+        <p>Stock: 30</p>
         <img src="menu3.jpg" alt="Menu 3" class="menu-image">
         <p>Menu traditionnel revisité.</p>
         <div class="menu-details">
@@ -79,7 +99,7 @@
     <div class="menu">
         <h3><a href="/menu4.html">Classique Festif</a></h3>
         <p>Festif</p>
-        <p>Stock: 26</p>
+        <p>Stock: 30</p>
         <img src="menu4.jpg" alt="Menu 4" class="menu-image">
         <p>Menu premium pour célébrations.</p>
         <div class="menu-details">
@@ -96,7 +116,7 @@
     <div class="menu">
         <h3><a href="/menu5.html">Pescétarien Festif</a></h3>
         <p>Festif</p>
-        <p>Stock: 26</p>
+        <p>Stock: 30</p>
         <img src="menu5.jpg" alt="Menu 5" class="menu-image">
         <p>Menu pescétarien pour les fêtes.</p>
         <div class="menu-details">
@@ -129,12 +149,12 @@
     </div>
     <div class="menu">
         <h3><a href="/menu7.html">Végétarien Fraicheur</a></h3>
-        <p>Noel</p>
-        <p>Stock: 26</p>
+        <p>Evénement</p>
+        <p>Stock: 30</p>
         <img src="menu7.jpg" alt="Menu 7" class="menu-image">
         <p>Menu léger et coloré.</p>
         <div class="menu-details">
-        <p>Salade de quinoa aux herbes de Provence.</p>
+        <p>Salade de quinoa et légumes aux herbes de Provence.</p>
         <p>Wok de légumes de saison.</p>
         <p>Salade de fruits frais.</p>
         </div>
@@ -145,15 +165,15 @@
         <p>Prix minimun: 24€.</p>
     </div>
     <div class="menu">
-        <h3><a href="/menu8.html">Végan Epiocé</a></h3>
-        <p>Noel</p>
-        <p>Stock: 26</p>
+        <h3><a href="/menu8.html">Végan Epicé</a></h3>
+        <p>Festif</p>
+        <p>Stock: 20</p>
         <img src="menu8.jpg" alt="Menu 8" class="menu-image">
         <p>Menu végan pour les fêtes.</p>
         <div class="menu-details">
         <p>Houmous et légumes croquants.</p>
         <p>Curry de légumes de saison au lait de coco.</p>
-        <p>Salade de fruits éxotiques.</p>
+        <p>Salade de fruits frais.</p>
         </div>
         <p>Allergènes: Noix</p>
         <p>Régime alimentaire: Végan</p>
@@ -164,13 +184,13 @@
     <div class="menu">
         <h3><a href="/menu9.html">Végan sans Gluten</a></h3>
         <p>Evénement</p>
-        <p>Stock: 26</p>
+        <p>Stock: 30</p>
         <img src="menu9.jpg" alt="Menu 9" class="menu-image">
         <p>Menu végétal sans gluten.</p>
         <div class="menu-details">
-        <p>Salade de quinoa et légumes.</p>
+        <p>Salade de quinoa et légumes aux herbes de Provence.</p>
         <p>Curry de légumes de saison au lait de coco.</p>
-        <p>Compote de pommes maison.</p>
+        <p>Compote de pommes artisanale.</p>
         </div>
         <p>Allergènes: Noix</p>
         <p>Régime alimentaire: Végan/Sans Gluten</p>
@@ -180,7 +200,7 @@
     </div>
     <div class="menu">
         <h3><a href="/menu10.html">Sans Lactose</a></h3>
-        <p>Evénement</p>
+        <p>Festif</p>
         <p>Stock: 26</p>
         <img src="menu10.jpg" alt="Menu 10" class="menu-image">
         <p>Menu festif sans lactose.</p>
@@ -197,13 +217,13 @@
     </div>
     <div class="menu">
         <h3><a href="/menu11.html">Sans Gluten</a></h3>
-        <p>Evénement</p>
-        <p>Stock: 26</p>
+        <p>Festif</p>
+        <p>Stock: 30</p>
         <img src="menu11.jpg" alt="Menu 11" class="menu-image">
         <p>Menu sans gluten pour les fêtes.</p>
         <div class="menu-details">
         <p>Velouté de légumes de saison.</p>
-        <p>Saumon grillé.</p>
+        <p>Saumon grillé, riz, légumes vapeur de saison.</p>
         <p>Salade de fruits frais.</p>
         </div>
         <p>Allergènes: Poisson</p>
@@ -212,15 +232,15 @@
         <p>Nombre de personne minimum: 8.</p>
         <p>Prix minimun: 28€.</p>
     </div>
-    <div class="menu">
+    <div class="menu"> 
         <h3><a href="/menu12.html">Pescétarien</a></h3>
         <p>Evénement</p>
-        <p>Stock: 26</p>
+        <p>Stock: 20</p>
         <img src="menu12.jpg" alt="Menu 12" class="menu-image">
         <p>Menu poisson premium.</p>
         <div class="menu-details">
         <p>Salade de quinoa aux herbes.</p>
-        <p>Saumon grillé, légumes vapeur de saison.</p>
+        <p>Saumon grillé, riz, légumes vapeur de saison.</p>
         <p>Tarte fine aux pommes.</p>
         </div>
         <p>Allergènes: Poisson, Gluten, Lactose</p>

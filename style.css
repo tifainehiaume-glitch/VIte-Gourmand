@@ -328,23 +328,23 @@ footer {
     width: 80%;
     margin: 50px auto;
     text-align: center;
+}
+.dtl-menu {
     display: grid;
-    grid-template-columns: repeat(4 , 1fr);
-    grid-template-rows: auto;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-rows: 200px 200px;
     gap: 20px;
-    grid-template-areas: "1 1 1 2"
-                        "3 3 3 4";
+    grid-template-areas: "item-1 item-1 item-1 item-2"
+                        "item-3 item-3 item-3 item-4"
+                        "item-5 item-6 item-7 item-8"
+                        "item-9 item-9 item-9 item-9";
 }
 .dtl {
-    margin: 20px 0;
+    display: block;
     border: 1px solid #dadada;
     padding: 10px;
     border-radius: 5px;
     background-color: #d8e0c8;
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
-    gap: 10px; 
-   
 }
 nav .retour .commander {
     background-color: #cb7885;

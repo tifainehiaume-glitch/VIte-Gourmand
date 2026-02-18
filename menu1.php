@@ -1,3 +1,18 @@
+<?php
+// Inclure le fichier de configuration
+require_once 'config.php';
+
+try {
+    // Requête pour récupérer le menu spécifique
+    $sql = "SELECT * FROM menu WHERE menu_id = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_GET['menu_id']]);
+    $menu = $stmt->fetch();
+} catch (PDOException $e) {
+    die("Erreur lors de la récupération du menu : " . $e->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,30 +38,31 @@
 <main>
     <div class="space"></div>
 <div>
-    <h2>Tradition Familiale</h2>
+    <h2><?= $menu['titre'] ?></h2>
 </div>
 
 <div class="theme-menu"> 
-    <p>Classique</p>
+    <p><?= $menu['theme_id'] ?></p>
 </div>
 
 <section class="details-menu">
 <div class="dtl-menu">
-    <p class="dtl" style="grid-area: 1">Faire une description du menu</p>
-    <p class="dtl" style="grid-area: 2">Stock: 26</p>
-    <p class="dtl" style="grid-area: 3">Nombre de personnes minimum: 10</p>
-    <p class="dtl" style="grid-area: 4">Prix minimum: 25€</p>
-    <div class="dtl" style="grid-area: 5">
+    <p class="dtl" style="grid-area: item-1"><?= $menu['description'] ?></p>
+    <p class="dtl" style="grid-area: item-2">Stock: <?= $menu['quantite_restante'] ?></p>
+    <p class="dtl" style="grid-area: item-3">Nombre de personnes minimum: <?= $menu['nombre_personne_minimum'] ?></p>
+    <p class="dtl" style="grid-area: item-4">Prix minimum: <?= $menu['prix_par_personne'] ?>€</p>
+    <div class="dtl" style="grid-area: item-5">
         <img src="menu1.jpg" alt="Menu 1" class="menu-image">
     </div>
-    <div class="dtl" style="grid-area: 6">
+    <div class="dtl" style="grid-area: item-6">
+        <?= $menu['plat'] 
     <p>velouté de potimarron et légumes de saison.</p>
     <p>Suprême de poulet rôti accompagné de pommes grenailles au thym.</p>
-    <p>Tarte fine aux pommes</p>
+    <p>Tarte fine aux pommes</p>?>
     </div>
-    <p class="dtl" style="grid-area: 7">Allergènes: Gluten, Lactose</p>
-    <p class="dtl" style="grid-area: 8">Régime alimentaire: Classique</p>
-    <p class="dtl" style="grid-area: 9">Conditions de stockage, d'utilisation</p>
+    <p class="dtl" style="grid-area: item-7"> Allergènes: <?= $menu['allergenes'] ?></p>
+    <p class="dtl" style="grid-area: item-8">Régime alimentaire: <?= $menu['regime_id'] ?></p>
+    <p class="dtl" style="grid-area: item-9">Conditions de stockage, d'utilisation</p>
 </div>
 </section>
 
