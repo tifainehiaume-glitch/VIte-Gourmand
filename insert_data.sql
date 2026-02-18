@@ -74,12 +74,14 @@ INSERT INTO menu (titre, nombre_personne_minimum, prix_par_personne, quantite_re
 ('Elegance Légère', 10, 23, 20, 'Un menu léger et raffiné pour les occasions spéciales.', 4, 2),
 ('Terroir Français', 8, 29, 30, 'Un menu traditionnel revisité.', 4, 3),
 ('Classique Festif', 8, 36, 30, 'Un menu premium pour célébrations.', 4, 4),
+('Pescétarien Festif', 8, 32, 30, 'Un menu festif à base de poisson.', 6, 4),
+('Vegetarien Gourmand', 8, 27, 26, 'Un menu végétarien gourmand pour les fêtes.', 1, 4),
 ('Végétarien Fraicheur', 8, 24, 30, 'Un menu léger et coloré.', 1, 1),
 ('Végan Epicé', 8, 28, 20, 'Un menu végan pour les fêtes.', 2, 3),
 ('Végan sans Gluten', 8, 30, 30, 'Un menu végétal sans gluten.', 2, 2),
-('Sans Lactose', 8, 22, 26, 'Un menu festif sans lactose.', 6, 3),
+('Sans Lactose', 8, 22, 26, 'Un menu festif sans lactose.', 3, 3),
 ('Sans Gluten', 8, 27, 30, 'Un menu sans gluten pour les fêtes.', 3, 3),
-('Pescétarien', 8, 26, 20, 'Un menu poisson premium.', 7, 1);
+('Pescétarien', 8, 26, 20, 'Un menu poisson premium.', 6, 1);
 
 -- Insertion des relations entre menus et plats
 INSERT INTO propose (menu_id, plat_id) VALUES

@@ -1,3 +1,7 @@
+<?php
+// Inclure le fichier de configuration
+require_once 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,7 +47,7 @@
             <label for="password">Mot de passe:</label>
             <input type="password" id="password" name="password" placeholder="Mot de passe" required>
             <label for="confirm_password">Confirmer le mot de passe:</label>
-            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmer le mot de passe" required>php
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmer le mot de passe" required>
             <button type="submit">S'inscrire</button>
         </form>
         

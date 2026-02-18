@@ -227,7 +227,7 @@ try {
         <p>Salade de fruits frais.</p>
         </div>
         <p>Allergènes: Poisson</p>
-        <p>Régime alimentaire: Sans Gluten</p>
+        <p>Régime alimentaire: Sans Gluten, Pescétarien</p>
         <p>Conditions de stockage, d'utilisation</p>
         <p>Nombre de personne minimum: 8.</p>
         <p>Prix minimun: 28€.</p>
