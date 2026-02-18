@@ -1,11 +1,3 @@
-<?php 
-session_start();
-if (isset($_SESSION['username'])) {
-    header("Location: espace.html");
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,11 +24,30 @@ if (isset($_SESSION['username'])) {
 <div>
     <h2>Me Connecter</h2>
 </div>
+<?php
+// Inclure le fichier de configuration
+require_once 'config.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    if($email != "" && $password != "") 
+    
+    $req = $bd->query("SELECT * FROM utilisateur WHERE email = '$email' AND password = '$password'");
+    $rep = $req->fetch();
+    if ($rep) {
+        header("Location: espace.html");
+        exit();
+    } else {
+        $error_msg = "Identifiant ou mot de passe incorrect.";
+    }
+}
+?>
 <section class="connecter-form">
     <form action="#" method="post">
         <div class="contact">
-            <label for="username">Identifiant:</label>
-            <input type="text" id="username" name="username" required>
+            <label for="email">Identifiant:</label>
+            <input type="text" id="email" name="email" required>
         </div>
 
         <div class="contact">
@@ -45,7 +56,7 @@ if (isset($_SESSION['username'])) {
             <p>Mot de passe oublié ? <a href="/reinitialiser.html">Réinitialiser</a></p>
         </div>
 
-        <button type="submit"><a href="/espace.html">Se Connecter</a></button>
+        <button type="submit"><a href="#">Se Connecter</a></button>
         <div class="inscription">
             <p>Pas encore de compte ? <a href="/inscription.html">S'inscrire</a></p>
         </div>
