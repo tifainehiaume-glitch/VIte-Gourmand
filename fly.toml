@@ -3,7 +3,7 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'app-icy-brook-7159'
+app = 'vite-et-gourmand'
 primary_region = 'iad'
 
 [build]
