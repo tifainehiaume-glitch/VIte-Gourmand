@@ -27,8 +27,8 @@ try {
      </a>
      <ul class="navbar">
             <li><a href="/menus.php">Nos Menus</a></li>
-            <li><a href="/contact.html">Nous Contacter</a></li>
-            <li><a href="/connecter.html">Me Connecter</a></li>
+            <li><a href="/contact.php">Nous Contacter</a></li>
+            <li><a href="/connecter.php">Me Connecter</a></li>
      </ul>  
     </nav>
 </header>
@@ -45,7 +45,7 @@ try {
                    <img src="menu<?= $menu['menu_id'] ?>.jpg" alt="Menu <?= $menu['menu_id'] ?>" class="menu-image">
                 </div>
             <?php endforeach; ?>
-<div class="menu">
+<!-- <div class="menu">
         <h3><a href="/menu1.html">Tradition Familiale</a></h3>
         <p>Classique</p>
         <p>Stock: 26</p>
@@ -248,8 +248,8 @@ try {
         <p>Conditions de stockage, d'utilisation</p>
         <p>Nombre de personne minimum: 8.</p>
         <p>Prix minimun: 30€.</p>
-    </div>
-</div>
+    </div> -->
+</div> 
 </main>  
 <footer>
     <div class="horaires">

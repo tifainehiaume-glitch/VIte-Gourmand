@@ -14,7 +14,7 @@
      </a>
      <ul class="navbar">
             <li><a href="/menus.php">Nos Menus</a></li>
-            <li><a href="/contact.html">Nous Contacter</a></li>
+            <li><a href="/contact.php">Nous Contacter</a></li>
             <li><a href="/connecter.php">Me Connecter</a></li>
      </ul>  
     </nav>
